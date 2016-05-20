@@ -41,7 +41,7 @@ package(
     default_visibility = ["//visibility:public"])
 
 filegroup(
-    name = 'nodejs_tool',
+    name = "nodejs_tool",
     srcs = ["bin/node"],
 )
 """
