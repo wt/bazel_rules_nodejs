@@ -40,9 +40,9 @@ NODEJS_BUILD_FILE_CONTENTS = """\
 package(
     default_visibility = ["//visibility:public"])
 
-filegroup(
+alias(
     name = "nodejs_tool",
-    srcs = ["bin/node"],
+    actual = "//:bin/node",
 )
 """
 
