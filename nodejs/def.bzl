@@ -56,3 +56,11 @@ def nodejs_repositories():
 	         'a99b97ec45cee418d453a0154384805a',
 	strip_prefix = "node-v4.4.5-linux-x64",
     )
+    native.new_http_archive(
+        name = 'nodejs_darwin_amd64',
+	url = 'https://nodejs.org/dist/v4.4.5/node-v4.4.5-darwin-x64.tar.gz',
+        build_file_content = NODEJS_BUILD_FILE_CONTENTS,
+        sha256 = '1e729f9836e7b543724ee0b2ac902b4d' +
+	         'ff4a6f7d91031d20314825b61e86127f',
+	strip_prefix = "node-v4.4.5-darwin-x64",
+    )
