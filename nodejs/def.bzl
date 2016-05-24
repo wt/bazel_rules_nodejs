@@ -50,9 +50,9 @@ alias(
 def nodejs_repositories():
     native.new_http_archive(
         name = 'nodejs_linux_amd64',
-        url = 'https://nodejs.org/dist/v4.4.4/node-v4.4.4-linux-x64.tar.xz',
+        url = 'https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x64.tar.xz',
         build_file_content = NODEJS_BUILD_FILE_CONTENTS,
-        sha256 = 'c8b4e3c6e07e51593dddbf1d2ec3cf0e' +
-	         'c09d5c6b8c5258b37b3816cc6b7e9fe3',
-	strip_prefix = "node-v4.4.4-linux-x64",
+        sha256 = 'bd6505d8a350cd83907374ea98730b0b' +
+	         'a99b97ec45cee418d453a0154384805a',
+	strip_prefix = "node-v4.4.5-linux-x64",
     )
