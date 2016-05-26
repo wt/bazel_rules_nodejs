@@ -36,6 +36,22 @@ nodejs_binary = rule(
     },
 )
 
+
+def nodejs_npm_registry_impl(repository_ctx):
+    registry_data = struct(url=repository_ctx.attr.url)
+    filename = 'npm_registry_data.json'
+    repository_ctx.file('BUILD', 'exports_files(["' + filename + '"])')
+    repository_ctx.file(filename, registry_data.to_json())
+
+nodejs_npm_registry = repository_rule(
+    nodejs_npm_registry_impl,
+    local=True,
+    attrs={
+        "url": attr.string(mandatory=True),
+    },
+)
+
+
 NODEJS_BUILD_FILE_CONTENTS = """\
 package(
     default_visibility = ["//visibility:public"])
@@ -63,4 +79,9 @@ def nodejs_repositories():
         sha256 = '1e729f9836e7b543724ee0b2ac902b4d' +
                  'ff4a6f7d91031d20314825b61e86127f',
         strip_prefix = "node-v4.4.5-darwin-x64",
+    )
+
+    nodejs_npm_registry(
+        name="nodejs_npm_default_registry",
+        url="https://registry.npmjs.org/",
     )
